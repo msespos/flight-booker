@@ -1,24 +1,8 @@
-# README
+# FLIGHT BOOKER
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an application developed as part of my work with the Odin Project.
 
-Things you may want to cover:
+Flight Booker is a site for booking airline flights. Users can search for flights given their search parameters, select their flight and book it with multiple passengers. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The Odin Project Flight Booker spec can be found here:
+https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/flight-booker
