@@ -11,3 +11,10 @@ codes = Airport.create([{ code: 'BUR' },
                         { code: 'BOS' },
                         { code: 'ORD' },
                         { code: 'MDW' }])
+
+flights = Flight.create([{ departure_airport_id: 0, arrival_airport_id: 1 },
+                         { departure_airport_id: 1, arrival_airport_id: 0 },
+                         { departure_airport_id: 2, arrival_airport_id: 3 },
+                         { departure_airport_id: 3, arrival_airport_id: 2 },
+                         { departure_airport_id: 4, arrival_airport_id: 5 },
+                         { departure_airport_id: 5, arrival_airport_id: 4 }])
