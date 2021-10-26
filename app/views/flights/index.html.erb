@@ -6,7 +6,7 @@ Arriving at:
 Number of Passengers:
 <%= select_tag(:number_of_passengers, options_for_select(@passenger_options)) %>
 Departure Date:
-<%= select :flight, :departure_datetime, Flight.all
-           .collect { |f| f.departure_datetime.strftime("%m/%d/%Y") }.uniq %>
+<%= select :flight, :departure_date, Flight.all
+           .collect { |f| f.departure_date.strftime("%m/%d/%Y") }.uniq %>
 <%= f.submit "Go!" %>
 <% end %>
