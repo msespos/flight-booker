@@ -1,12 +1,24 @@
 <%= form_with url: "/flights", method: :get do |f| %>
-Departing from:
-<%= select(:flight, :departure_airport_id, @airport_options) %>
-Arriving at:
-<%= select(:flight, :arrival_airport_id, @airport_options) %>
-Number of Passengers:
-<%= select_tag(:number_of_passengers, options_for_select(@passenger_options)) %>
-Departure Date:
-<%= select :flight, :departure_date, Flight.all
-           .collect { |f| f.departure_date.strftime("%m/%d/%Y") }.uniq %>
-<%= f.submit "Go!" %>
+  Departing from:
+  <%= select(:flight, :departure_airport_id, @airport_options) %>
+  Arriving at:
+  <%= select(:flight, :arrival_airport_id, @airport_options) %>
+  Number of Passengers:
+  <%= select_tag(:number_of_passengers, options_for_select(@passenger_options)) %>
+  Departure Date:
+  <%= select :flight, :departure_date, Flight.all
+             .collect { |f| f.departure_date_formatted }.uniq %>
+  <%= f.submit "Go!" %>
+<% end %>
+<% unless @found_flights.nil? %>
+  <% if @found_flights[0].nil? %>
+    No flights found
+  <% else %>
+    <% @found_flights.each do |f| %>
+      <%= f[:departure_airport_id] %>
+      <%= f[:arrival_airport_id] %>
+      <%= f[:departure_date].strftime("%d/%m/%Y") %>
+      <%= f[:departure_time] %></br>
+    <% end %>
+  <% end %>
 <% end %>
