@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
     @found_flights = found_flights
   end
 
-  def found_flights(search_criteria)
+  def found_flights
     return nil if params[:flight].nil?
 
     Flight.find_flights(search_criteria)
@@ -18,6 +18,6 @@ class FlightsController < ApplicationController
   def search_criteria
     { departure_airport_id: params[:flight][:departure_airport_id],
       arrival_airport_id: params[:flight][:arrival_airport_id],
-      departure_datetime: params[:flight][:departure_datetime] }
+      departure_date: params[:flight][:departure_date] }
   end
 end
