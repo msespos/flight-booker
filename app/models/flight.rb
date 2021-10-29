@@ -5,8 +5,8 @@ class Flight < ApplicationRecord
   belongs_to :departure_airport, class_name: 'Airport'
   belongs_to :arrival_airport, class_name: 'Airport'
 
-  def departure_date_formatted
-    departure_date.strftime("%d/%m/%Y")
+  def self.airport_code(airport_id)
+    Airport.find(airport_id).code
   end
 
   def self.find_flights(search_criteria)
