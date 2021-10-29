@@ -10,11 +10,11 @@ class Flight < ApplicationRecord
   end
 
   def self.find_flights(search_criteria)
-    found_flights = Flight.all.where(departure_airport_id:
-                                       search_criteria[:departure_airport_id],
-                                     arrival_airport_id:
-                                       search_criteria[:arrival_airport_id],
-                                     departure_date:
-                                       search_criteria[:departure_date].to_datetime)
+    Flight.all.where(departure_airport_id:
+                       search_criteria[:departure_airport_id],
+                     arrival_airport_id:
+                       search_criteria[:arrival_airport_id],
+                     departure_date:
+                       search_criteria[:departure_date].to_datetime)
   end
 end

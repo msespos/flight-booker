@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,22 +12,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_134055) do
-
-  create_table "airports", force: :cascade do |t|
-    t.string "code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+ActiveRecord::Schema.define(version: 20_211_028_134_055) do
+  create_table 'airports', force: :cascade do |t|
+    t.string 'code'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "flights", force: :cascade do |t|
-    t.datetime "departure_date"
-    t.time "duration"
-    t.integer "departure_airport_id"
-    t.integer "arrival_airport_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.time "departure_time"
+  create_table 'flights', force: :cascade do |t|
+    t.datetime 'departure_date'
+    t.time 'duration'
+    t.integer 'departure_airport_id'
+    t.integer 'arrival_airport_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.time 'departure_time'
   end
-
 end
