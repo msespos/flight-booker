@@ -7,6 +7,6 @@ module FlightsHelper
   end
 
   def format_time(time)
-    time.strftime('%d/%m/%Y')
+    time.strftime('%H:%m%p')
   end
 end
