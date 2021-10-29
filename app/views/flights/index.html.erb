@@ -1,14 +1,29 @@
-<%= form_with url: "/flights", method: :get do |f| %>
-  Departing from:
-  <%= select(:flight, :departure_airport_id, @airport_options) %>
-  Arriving at:
-  <%= select(:flight, :arrival_airport_id, @airport_options) %>
-  Number of Passengers:
-  <%= select_tag(:number_of_passengers, options_for_select(@passenger_options)) %>
-  Departure Date:
-  <%= select :flight, :departure_date, Flight.all
-             .collect { |f| format_date(f[:departure_date]) }.uniq %>
-  <%= f.submit "Go!" %>
+<% if @found_flights.nil? %>
+  <%= form_with url: '/flights', method: :get do |f| %>
+    Departing from:
+    <%= select :flight, :departure_airport_id, @airport_options %>
+    Arriving at:
+    <%= select :flight, :arrival_airport_id, @airport_options %>
+    Number of Passengers:
+    <%= select_tag :number_of_passengers, options_for_select(@passenger_options, params[:number_of_passengers]) %>
+    Departure Date:
+    <%= select :flight, :departure_date, Flight.all
+               .collect { |f| format_date(f[:departure_date]) }.uniq %>
+    <%= f.submit "Go!" %>
+  <% end %>
+<% else %>
+  <%= form_with url: '/flights', method: :get do |f| %>
+    Departing from:
+    <%= select :flight, :departure_airport_id, @airport_options, selected: params[:flight][:departure_airport_id] %>
+    Arriving at:
+    <%= select :flight, :arrival_airport_id, @airport_options, selected: params[:flight][:arrival_airport_id] %>
+    Number of Passengers:
+    <%= select_tag :number_of_passengers, options_for_select(@passenger_options, params[:number_of_passengers]) %>
+    Departure Date:
+    <%= select :flight, :departure_date, Flight.all
+               .collect { |f| format_date(f[:departure_date]) }.uniq, selected: params[:flight][:departure_date] %>
+    <%= f.submit "Go!" %>
+  <% end %>
 <% end %>
 <% unless @found_flights.nil? %>
   <% if @found_flights[0].nil? %>
