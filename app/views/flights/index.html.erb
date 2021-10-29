@@ -7,7 +7,7 @@
   <%= select_tag(:number_of_passengers, options_for_select(@passenger_options)) %>
   Departure Date:
   <%= select :flight, :departure_date, Flight.all
-             .collect { |f| f.departure_date_formatted }.uniq %>
+             .collect { |f| format_date(f[:departure_date]) }.uniq %>
   <%= f.submit "Go!" %>
 <% end %>
 <% unless @found_flights.nil? %>
@@ -15,10 +15,10 @@
     No flights found
   <% else %>
     <% @found_flights.each do |f| %>
-      <%= f[:departure_airport_id] %>
-      <%= f[:arrival_airport_id] %>
-      <%= f[:departure_date].strftime("%d/%m/%Y") %>
-      <%= f[:departure_time] %></br>
+      <%= Flight.airport_code(f[:departure_airport_id]) %>
+      <%= Flight.airport_code(f[:arrival_airport_id]) %>
+      <%= format_date(f[:departure_date]) %>
+      <%= format_time(f[:departure_time]) %><br>
     <% end %>
   <% end %>
 <% end %>
