@@ -4,6 +4,7 @@
 class Flight < ApplicationRecord
   belongs_to :departure_airport, class_name: 'Airport'
   belongs_to :arrival_airport, class_name: 'Airport'
+  has_many :bookings
 
   def self.airport_code(airport_id)
     Airport.find(airport_id).code
