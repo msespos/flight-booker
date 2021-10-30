@@ -1,5 +1,6 @@
-class BookingsController < ApplicationController
+# frozen_string_literal: true
 
-  def new
-  end
+# Bookings Controller class
+class BookingsController < ApplicationController
+  def new; end
 end
