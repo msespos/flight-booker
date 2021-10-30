@@ -10,7 +10,7 @@ class FlightsController < ApplicationController
 
   def find_flights
     return nil if params[:flight].nil?
-    
+
     Flight.find_flights(search_criteria)
   end
 
