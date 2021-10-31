@@ -6,10 +6,6 @@ class Flight < ApplicationRecord
   belongs_to :arrival_airport, class_name: 'Airport'
   has_many :bookings
 
-  def self.airport_code(airport_id)
-    Airport.find(airport_id).code
-  end
-
   def self.find_flights(search_criteria)
     Flight.all.where(departure_airport_id:
                        search_criteria[:departure_airport_id],
