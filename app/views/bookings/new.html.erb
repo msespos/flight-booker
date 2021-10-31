@@ -1,0 +1,12 @@
+Flight ID:
+<%= params[:flight][:id] %><br>
+Number of Passengers:
+<%= params[:flight][:number_of_passengers] %><br>
+Departure airport:
+<%= airport_code(Flight.find(params[:flight][:id]).departure_airport_id) %><br>
+Arrival airport:
+<%= airport_code(Flight.find(params[:flight][:id]).arrival_airport_id) %><br>
+Departure date:
+<%= format_date(Flight.find(params[:flight][:id]).departure_date) %><br>
+Departure time:
+<%= format_time(Flight.find(params[:flight][:id]).departure_time) %>
