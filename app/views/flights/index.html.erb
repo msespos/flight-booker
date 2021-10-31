@@ -20,11 +20,11 @@
     No flights found
   <% else %>
     <%= form_with url: '/bookings/new', method: :get, local: true do |form| %>
-      <% hidden_field :flight, :number_of_passengers %>
+      <%= hidden_field :flight, :number_of_passengers, value: params[:number_of_passengers] %>
       <% @found_flights.each do |f| %>
         <%= radio_button :flight, :id, f[:id] %>
-        <%= Flight.airport_code(f[:departure_airport_id]) %>
-        <%= Flight.airport_code(f[:arrival_airport_id]) %>
+        <%= airport_code(f[:departure_airport_id]) %>
+        <%= airport_code(f[:arrival_airport_id]) %>
         <%= format_date(f[:departure_date]) %>
         <%= format_time(f[:departure_time]) %><br>
       <% end %>
