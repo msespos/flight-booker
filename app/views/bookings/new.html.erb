@@ -8,4 +8,14 @@ Arrival airport:
 Departure date:
 <%= format_date(@flight.departure_date) %><br>
 Departure time:
-<%= format_time(@flight.departure_time) %>
+<%= format_time(@flight.departure_time) %><br>
+Passengers:<br>
+<%= form_with url: '/bookings' do |booking_form| %>
+  <% @passengers.each do |passenger| %>
+    <%= booking_form.fields_for [passenger], index: passenger do |passenger_form| %>
+      Name<%= passenger_form.text_field :name %>
+      Email<%= passenger_form.text_field :email %><br>
+    <% end %>
+  <% end %>
+  <%= booking_form.submit 'Book it!' %>
+<% end %>
