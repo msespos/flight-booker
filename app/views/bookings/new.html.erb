@@ -12,7 +12,7 @@ Departure time:
 Passengers:<br>
 <%= form_with url: '/bookings' do |booking_form| %>
   <% @passengers.each_with_index do |passenger, passenger_id| %>
-    <%= booking_form.fields_for passenger, index: passenger_id do |passenger_form| %>
+    <%= booking_form.fields_for passenger, index: nil do |passenger_form| %>
       Passenger #<%= passenger_id + 1 %>
       Name<%= passenger_form.text_field :name %>
       Email<%= passenger_form.text_field :email %><br>
