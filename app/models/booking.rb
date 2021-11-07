@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   has_many :passengers
   accepts_nested_attributes_for :passengers
 
-  def self.passengers(number_of_passengers)
+  def self.create_passengers(number_of_passengers)
     passengers = []
     number_of_passengers.to_i.times do
       passengers << Passenger.new
