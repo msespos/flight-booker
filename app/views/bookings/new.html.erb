@@ -1,14 +1,7 @@
 Flight
 <%= @flight_id %><br>
 <%= pluralize(@number_of_passengers, 'passenger') %><br>
-Departure airport:
-<%= airport_code(@flight.departure_airport_id) %><br>
-Arrival airport:
-<%= airport_code(@flight.arrival_airport_id) %><br>
-Departure date:
-<%= format_date(@flight.departure_date) %><br>
-Departure time:
-<%= format_time(@flight.departure_time) %><br>
+<%= render 'flight_info' %>
 Passengers:<br>
 <%= form_with model: @booking do |booking_form| %>
   <%= booking_form.hidden_field :flight_id, value: @flight.id %>
