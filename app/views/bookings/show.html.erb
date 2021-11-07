@@ -1,0 +1,8 @@
+Booking made for Flight <%= @booking.flight_id %><br>
+<%= render 'flight_info' %>
+<% @booking.passengers.each do |passenger| %>
+  Passenger <%= passenger.id %>:
+  <%= passenger.name %> - email:
+  <%= passenger.email %><br>
+<% end %>
+Enjoy your flight!
