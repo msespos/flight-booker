@@ -10,7 +10,8 @@ Departure date:
 Departure time:
 <%= format_time(@flight.departure_time) %><br>
 Passengers:<br>
-<%= form_with url: '/bookings' do |booking_form| %>
+<%= form_with model: @booking do |booking_form| %>
+  <%= booking_form.hidden_field :flight_id, value: @flight.id %>
   <% @passengers.each_with_index do |passenger, passenger_id| %>
     <%= booking_form.fields_for passenger, index: nil do |passenger_form| %>
       Passenger #<%= passenger_id + 1 %>
