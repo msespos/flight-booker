@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @booking
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -26,10 +26,10 @@ class BookingsController < ApplicationController
 
   private
 
-    def extract_booking_params!
-      params[:booking][:passengers_attributes] = params[:booking][:passenger]
-      params[:booking].delete(:passenger)
-      params.require(:booking).permit(:flight_id,
-                                      passengers_attributes: [:name, :email])
-    end
+  def extract_booking_params!
+    params[:booking][:passengers_attributes] = params[:booking][:passenger]
+    params[:booking].delete(:passenger)
+    params.require(:booking).permit(:flight_id,
+                                    passengers_attributes: %i[name email])
+  end
 end
