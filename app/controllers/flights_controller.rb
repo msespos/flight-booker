@@ -15,7 +15,6 @@ class FlightsController < ApplicationController
   end
 
   def search_criteria
-    Rails.logger.debug "CONTROLLER SEARCH CRITERIA PARAMS: #{params}}"
     { departure_airport_id: params[:flight][:departure_airport_id],
       arrival_airport_id: params[:flight][:arrival_airport_id],
       departure_date: params[:flight][:departure_date] }
