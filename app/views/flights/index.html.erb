@@ -1,3 +1,4 @@
+<%= flash[:alert] %>
 <%= form_with url: '/flights', method: :get, local: true do |f| %>
   Departing from:
   <%= select :flight, :departure_airport_id, @airport_options,

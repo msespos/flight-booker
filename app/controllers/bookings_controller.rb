@@ -3,11 +3,16 @@
 # Bookings Controller class
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new
-    @flight_id = params[:flight][:id]
-    @number_of_passengers = params[:flight][:number_of_passengers]
-    @flight = Flight.find(@flight_id)
-    @passengers = Booking.create_passengers(@number_of_passengers)
+    if params[:flight][:id] == nil
+      flash[:alert] = 'Please redo your search and make a selection before booking.'
+      redirect_to controller: :flights, action: :index
+    else
+      @booking = Booking.new
+      @flight_id = params[:flight][:id]
+      @number_of_passengers = params[:flight][:number_of_passengers]
+      @flight = Flight.find(@flight_id)
+      @passengers = Booking.create_passengers(@number_of_passengers)
+    end
   end
 
   def create
