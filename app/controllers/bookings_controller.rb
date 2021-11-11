@@ -3,13 +3,15 @@
 # Bookings Controller class
 class BookingsController < ApplicationController
   def new
-    redo_search_flash_redirect if params[:flight][:id].nil?
-
-    @booking = Booking.new
-    @flight_id = params[:flight][:id]
-    @number_of_passengers = params[:flight][:number_of_passengers]
-    @flight = Flight.find(@flight_id)
-    @passengers = Booking.create_passengers(@number_of_passengers)
+    if params[:flight][:id].nil?
+      redo_search_flash_redirect
+    else
+      @booking = Booking.new
+      @flight_id = params[:flight][:id]
+      @number_of_passengers = params[:flight][:number_of_passengers]
+      @flight = Flight.find(@flight_id)
+      @passengers = Booking.create_passengers(@number_of_passengers)
+    end
   end
 
   def redo_search_flash_redirect
