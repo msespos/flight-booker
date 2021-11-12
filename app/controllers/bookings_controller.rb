@@ -4,19 +4,19 @@
 class BookingsController < ApplicationController
   def new
     if params[:flight][:id].nil?
-      redo_search_flash_redirect
+      flash[:alert] = 'Please redo your search and make a selection before booking.'
+      redirect_to controller: :flights, action: :index,
+                  number_of_passengers: params[:number_of_passengers],
+                  flight: {
+                    departure_airport_id: params[:flight][:departure_airport_id],
+                    arrival_airport_id: params[:flight][:arrival_airport_id],
+                    departure_date: params[:flight][:departure_date] }
     else
       @booking = Booking.new
-      @flight_id = params[:flight][:id]
-      @number_of_passengers = params[:flight][:number_of_passengers]
-      @flight = Flight.find(@flight_id)
+      @number_of_passengers = params[:number_of_passengers]
+      @flight = Flight.find(params[:flight][:id])
       @passengers = Booking.create_passengers(@number_of_passengers)
     end
-  end
-
-  def redo_search_flash_redirect
-    flash[:alert] = 'Please redo your search and make a selection before booking.'
-    redirect_to controller: :flights, action: :index
   end
 
   def create
