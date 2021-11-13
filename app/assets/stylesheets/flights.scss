@@ -1,3 +1,69 @@
 // Place all the styles related to the Flights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.flash-alert {
+  background-color: red;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px;
+  margin: 10px 0px;
+}
+
+* {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: purple;
+}
+
+select {
+  height: 50px;
+  font-size: 36px;
+}
+
+.search-prompt {
+  font-size: 48px;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  margin: 50px
+}
+
+.search-fields {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px;
+}
+
+.search-field-box {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: purple;
+  padding: 35px;
+  flex-wrap: wrap;
+}
+
+.search-text {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.search-select {
+  text-align: right;
+  margin: 10px;
+}
+
+.search-button-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+
+.search-button {
+  height: 75px;
+  font-size: 48px;
+}

@@ -1,21 +1,58 @@
-<%= flash[:alert] %>
-<%= form_with url: '/flights', method: :get, local: true do |f| %>
-  Departing from:
-  <%= select :flight, :departure_airport_id, @airport_options,
-             selected: params.dig(:flight, :departure_airport_id) %>
-  Arriving at:
-  <%= select :flight, :arrival_airport_id, @airport_options,
-             selected: params.dig(:flight, :arrival_airport_id) %>
-  Number of Passengers:
-  <%= select_tag :number_of_passengers,
-                 options_for_select(@passenger_options,
-                                    params[:number_of_passengers]) %>
-  Departure Date:
-  <%= select :flight, :departure_date, Flight.all
-             .collect { |f| format_date(f[:departure_date]) }.uniq,
-             selected: params.dig(:flight, :departure_date) %>
-  <%= f.submit "Go!" %>
+<% if flash[:alert] %>
+  <div class="flash-alert">
+    <%= flash[:alert] %>
+  </div>
 <% end %>
+<div class="search-form">
+  <div class="search-prompt">
+    Search for flights:
+  </div>
+  <%= form_with url: '/flights', method: :get, local: true do |f| %>
+    <div class="search-fields">
+      <div class="search-field-box">
+        <div class="search-text">
+          Departing from:
+        </div>
+        <div class="search-select">
+          <%= select :flight, :departure_airport_id, @airport_options,
+                     selected: params.dig(:flight, :departure_airport_id) %>
+        </div>
+      </div>
+      <div class="search-field-box">
+        <div class="search-text">
+          Arriving at:
+        </div>
+        <div class="search-select">
+          <%= select :flight, :arrival_airport_id, @airport_options,
+                     selected: params.dig(:flight, :arrival_airport_id) %>
+        </div>
+      </div>
+      <div class="search-field-box">
+        <div class="search-text">
+          Number of Passengers:
+        </div>
+        <div class="search-select">
+          <%= select_tag :number_of_passengers,
+                         options_for_select(@passenger_options,
+                                            params[:number_of_passengers]) %>
+        </div>
+      </div>
+      <div class="search-field-box">
+        <div class="search-text">
+          Departure Date:
+        </div>
+        <div class="search-select">
+          <%= select :flight, :departure_date, Flight.all
+                     .collect { |f| format_date(f[:departure_date]) }.uniq,
+                     selected: params.dig(:flight, :departure_date) %>
+        </div>
+      </div>
+    </div>
+    <div class="search-button-box">
+      <%= f.submit "Search!", class: "search-button" %>
+    </div>  
+  <% end %>
+</div>
 <% unless @found_flights.nil? %>
   <% if @found_flights[0].nil? %>
     No flights found
