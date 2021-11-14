@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .flash-alert {
   background-color: red;
+  color: black;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
@@ -17,12 +18,12 @@
 }
 
 select {
-  height: 50px;
-  font-size: 36px;
+  height: 30px;
+  font-size: 24px;
 }
 
 .prompt {
-  font-size: 48px;
+  font-size: 36px;
 }
 
 .search-form {
@@ -33,37 +34,39 @@ select {
 
 .search-fields {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 10px;
   margin: 50px;
 }
 
 .search-field-box {
   display: flex;
   flex-direction: column;
+  flex: 1;
   border-style: solid;
   border-color: purple;
   padding: 35px;
 }
 
 .search-text {
-  font-size: 24px;
-  margin: 10px;
+  font-size: 21px;
+  margin: 5px 0px;
 }
 
 .search-select {
   text-align: right;
-  margin: 10px;
+  margin-top: 10px;
 }
 
 .button-box {
   display: flex;
   justify-content: flex-end;
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 .button {
   height: 75px;
-  font-size: 48px;
+  font-size: 36px;
 }
 
 .flight-form {
