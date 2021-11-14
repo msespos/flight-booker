@@ -21,9 +21,8 @@ select {
   font-size: 36px;
 }
 
-.search-prompt {
+.prompt {
   font-size: 48px;
-  text-align: center;
 }
 
 .search-form {
@@ -44,7 +43,6 @@ select {
   border-style: solid;
   border-color: purple;
   padding: 35px;
-  flex-wrap: wrap;
 }
 
 .search-text {
@@ -57,13 +55,34 @@ select {
   margin: 10px;
 }
 
-.search-button-box {
+.button-box {
   display: flex;
   justify-content: flex-end;
   margin-right: 100px;
 }
 
-.search-button {
+.button {
   height: 75px;
   font-size: 48px;
+}
+
+.flight-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 50px
+}
+
+.flights-box {
+  border-style: solid;
+  border-color: purple;
+  padding: 35px;
+  font-size: 24px;
+  margin: 50px;
+}
+
+.none-found {
+  color: red;
+  font-size: 48px;
+  margin: 50px;
 }

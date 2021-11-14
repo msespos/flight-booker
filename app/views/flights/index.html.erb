@@ -4,8 +4,8 @@
   </div>
 <% end %>
 <div class="search-form">
-  <div class="search-prompt">
-    Search for flights:
+  <div class="prompt">
+    1. Search for flights:
   </div>
   <%= form_with url: '/flights', method: :get, local: true do |f| %>
     <div class="search-fields">
@@ -48,32 +48,43 @@
         </div>
       </div>
     </div>
-    <div class="search-button-box">
-      <%= f.submit "Search!", class: "search-button" %>
+    <div class="button-box">
+      <%= f.submit "Search!", class: "button" %>
     </div>  
   <% end %>
 </div>
 <% unless @found_flights.nil? %>
   <% if @found_flights[0].nil? %>
-    No flights found
+    <div class="none-found">
+      No flights found - search again
+    </div>
   <% else %>
-    <%= form_with url: '/bookings/new', method: :get, local: true do |form| %>
-      <%= hidden_field nil, :number_of_passengers,
-                       value: params[:number_of_passengers] %>
-      <%= hidden_field :flight, :departure_airport_id,
-                       value: params[:flight][:departure_airport_id] %>
-      <%= hidden_field :flight, :arrival_airport_id,
-                       value: params[:flight][:arrival_airport_id] %>
-      <%= hidden_field :flight, :departure_date,
-                       value: params[:flight][:departure_date] %>
-      <% @found_flights.each do |f| %>
-        <%= radio_button :flight, :id, f[:id] %>
-        <%= airport_code(f[:departure_airport_id]) %>
-        <%= airport_code(f[:arrival_airport_id]) %>
-        <%= format_date(f[:departure_date]) %>
-        <%= format_time(f[:departure_time]) %><br>
-      <% end %>
-      <%= form.submit "Select flight" %>
+    <div class="flight-form">
+      <div class="prompt">
+        2. Select a flight:
+      </div>
+      <%= form_with url: '/bookings/new', method: :get, local: true do |form| %>
+        <%= hidden_field nil, :number_of_passengers,
+                         value: params[:number_of_passengers] %>
+        <%= hidden_field :flight, :departure_airport_id,
+                         value: params[:flight][:departure_airport_id] %>
+        <%= hidden_field :flight, :arrival_airport_id,
+                         value: params[:flight][:arrival_airport_id] %>
+        <%= hidden_field :flight, :departure_date,
+                         value: params[:flight][:departure_date] %>
+        <div class="flights-box">
+          <% @found_flights.each do |f| %>
+            <%= radio_button :flight, :id, f[:id] %>
+            <%= airport_code(f[:departure_airport_id]) %>
+            <%= airport_code(f[:arrival_airport_id]) %>
+            <%= format_date(f[:departure_date]) %>
+            <%= format_time(f[:departure_time]) %><br>
+          <% end %>
+        </div>
+        <div class="button-box">
+          <%= form.submit "Select", class: "button" %>
+        </div>
+      </div>
     <% end %>
   <% end %>
 <% end %>
