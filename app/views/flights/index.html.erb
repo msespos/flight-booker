@@ -74,7 +74,8 @@
   <% else %>
     <div class="flight-form">
       <div class="prompt">
-        2. Select a flight:
+        2. Select a flight for <%= pluralize(params[:number_of_passengers],
+                                   'passenger') %>
       </div>
       <%= form_with url: '/bookings/new', method: :get, local: true do |form| %>
         <%= hidden_field nil, :number_of_passengers,
