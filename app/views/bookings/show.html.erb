@@ -1,8 +1,24 @@
-Booking made for Flight <%= @booking.flight_id %><br>
-<%= render 'flight_info' %>
-<% @booking.passengers.each do |passenger| %>
-  Passenger <%= passenger.id %>:
-  <%= passenger.name %> - email:
-  <%= passenger.email %><br>
-<% end %>
-Enjoy your flight!
+<div class="header">
+  <div class="photo-and-credit">
+    <%= image_tag "suhyeon-choi-tTfDMaRq-FE-unsplash.jpg", alt: "Backs of airplane seats" %>
+    <div class="airline-seats-photo-credit">
+      Photo by <a href="https://unsplash.com/@by_syeoni?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Suhyeon Choi</a> on <a href="https://unsplash.com/s/photos/airplane?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </div>
+  </div>
+  <div class="title">
+    Flight Booker
+  </div>
+</div>
+<div class="flight-info">
+  <div class="prompt">
+    5. Your booking is complete. Enjoy your trip!
+  </div>
+  <div class="info-container">
+      <em>Booking made for:</em> Flight <%= @booking.flight_id %><br>
+      <%= render 'flight_info' %>
+      <% @booking.passengers.each do |passenger| %>
+      Passenger <%= passenger.id %>: <%= passenger.name %>; 
+      Email: <%= passenger.email %><br>
+    <% end %>
+  </div>
+</div>
