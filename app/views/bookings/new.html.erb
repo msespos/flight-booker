@@ -1,16 +1,36 @@
-Flight
-<%= @flight.id %><br>
-<%= pluralize(@number_of_passengers, 'passenger') %><br>
-<%= render 'flight_info' %>
-Passengers:<br>
-<%= form_with model: @booking do |booking_form| %>
-  <%= booking_form.hidden_field :flight_id, value: @flight.id %>
-  <% @passengers.each_with_index do |passenger, passenger_id| %>
-    <%= booking_form.fields_for passenger, index: nil do |passenger_form| %>
-      Passenger #<%= passenger_id + 1 %>
-      Name<%= passenger_form.text_field :name %>
-      Email<%= passenger_form.text_field :email %><br>
+<div class="header">
+  <div class="photo-and-credit">
+    <div class="airplane-seats-photo">
+      <%= image_tag "suhyeon-choi-tTfDMaRq-FE-unsplash.jpg", alt: "Backs of airplane seats" %>
+    </div>
+    <div class="airline-seats-photo-credit">
+      Photo by <a href="https://unsplash.com/@by_syeoni?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Suhyeon Choi</a> on <a href="https://unsplash.com/s/photos/airplane?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    </div>
+  </div>
+  <div class="title">
+    Flight Booker
+  </div>
+</div>
+<div class="info-container">
+  Flight
+  <%= @flight.id %><br>
+  <%= pluralize(@number_of_passengers, 'passenger') %>
+</div>
+<div class="info-container">
+  <div class="info-container">
+    <%= render 'flight_info' %>
+  </div>
+  <div class="info-container">
+    <%= form_with model: @booking do |booking_form| %>
+      <%= booking_form.hidden_field :flight_id, value: @flight.id %>
+      <% @passengers.each_with_index do |passenger, passenger_id| %>
+        <%= booking_form.fields_for passenger, index: nil do |passenger_form| %>
+          Passenger #<%= passenger_id + 1 %>
+          Name<%= passenger_form.text_field :name %>
+          Email<%= passenger_form.text_field :email %><br>
+        <% end %>
+      <% end %>
+      <%= booking_form.submit 'Book it!' %>
     <% end %>
-  <% end %>
-  <%= booking_form.submit 'Book it!' %>
-<% end %>
+  </div>
+</div>
