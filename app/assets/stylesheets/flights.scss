@@ -20,6 +20,27 @@ select {
   padding: 6px;
 }
 
+img {
+  max-height: 333px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+  margin: 35px;
+}
+
+.airline-seats-photo-credit {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.title {
+  font-size: 96px;
+  font-style: italic;
+}
+
 .prompt {
   font-size: 36px;
 }
