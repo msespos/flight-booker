@@ -8,42 +8,6 @@
   margin: 10px 0px;
 }
 
-* {
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  color: #8633cb;
-}
-
-select {
-  font-size: 24px;
-  padding: 6px 0px 3px 6px;
-}
-
-img {
-  max-height: 333px;
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  gap: 42px;
-  margin: 35px;
-}
-
-.airline-seats-photo-credit {
-  font-size: 14px;
-  font-style: italic;
-}
-
-.title {
-  font-size: 96px;
-  font-style: italic;
-}
-
-.prompt {
-  font-size: 36px;
-}
-
 .search-form {
   display: flex;
   flex-direction: column;
@@ -63,29 +27,17 @@ img {
   flex: 1;
   border-style: solid;
   border-color: purple;
-  padding: 35px;
+  padding: 25px 35px;
 }
 
 .search-text {
-  font-size: 21px;
+  font-size: 24px;
   margin: 5px 0px;
 }
 
 .search-select {
   text-align: right;
   margin-top: 10px;
-}
-
-.button-box {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 50px;
-}
-
-.button {
-  height: 75px;
-  font-size: 36px;
-  padding: 15px;
 }
 
 .flight-form {

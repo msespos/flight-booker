@@ -1,0 +1,47 @@
+* {
+  font-family: "Times New Roman", Times, serif;
+}
+
+select {
+  font-size: 24px;
+  padding: 6px 0px 3px 6px;
+}
+
+img {
+  max-height: 333px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+  margin: 75px;
+}
+
+.airline-seats-photo-credit {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.title {
+  font-size: 96px;
+  font-style: italic;
+}
+
+.prompt {
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+
+.button {
+  height: 75px;
+  font-size: 36px;
+  padding: 15px;
+}
+

@@ -1,6 +1,37 @@
+.flight-info {
+  margin: 50px
+}
+
 .info-container {
   border-style: solid;
   border-color: purple;
+  font-size: 21px;
+  padding: 20px;
+  margin: 50px;
+}
+
+.passenger-fillins {
+  margin: 50px
+}
+
+.passenger-container {
+  margin: 50px;
+}
+
+.passenger-field {
+  height: 50px;
+  width: 500px;
+  border-style: solid;
+  border-color: purple;
+  font-size: 24px;
+  padding: 0px 20px;
+}
+
+.passenger-header {
+  font-size: 24px;
+}
+
+.passenger-info {
   font-size: 18px;
-  padding: 35px;
+  margin: 18px 0px 9px;
 }
