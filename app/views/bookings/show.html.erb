@@ -16,8 +16,8 @@
   <div class="info-container">
       <em>Booking made for:</em> Flight <%= @booking.flight_id %><br>
       <%= render 'flight_info' %>
-      <% @booking.passengers.each do |passenger| %>
-      Passenger <%= passenger.id %>: <%= passenger.name %>; 
+      <% @booking.passengers.each_with_index do |passenger, index| %>
+      Passenger <%= index + 1 %>: <%= passenger.name %>;
       Email: <%= passenger.email %><br>
     <% end %>
   </div>
