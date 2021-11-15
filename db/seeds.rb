@@ -218,4 +218,3 @@ Flight.create([{ departure_airport_id: 1, arrival_airport_id: 2,
                  departure_date: '2021-11-01', departure_time: '13:00' },
                { departure_airport_id: 6, arrival_airport_id: 4,
                  departure_date: '2021-11-01', departure_time: '13:00' }])
-          
