@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 describe Booking do
@@ -41,3 +43,5 @@ describe Booking do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength
