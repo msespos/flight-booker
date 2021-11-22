@@ -5,6 +5,19 @@
 require 'rails_helper'
 
 describe Flight do
+  let(:BUR_LAX_nov1) do
+    create(:flight, traits: %i[departing_on_nov1
+                               departing_from_BUR arriving_at_LAX])
+  end
+  let(:BUR_LAX_nov2) do
+    create(:flight, traits: %i[departing_on_nov2
+                               departing_from_BUR arriving_at_LAX])
+  end
+  let(:BUR_LAX_nov3) do
+    create(:flight, traits: %i[departing_on_nov3
+                               departing_from_BUR arriving_at_LAX])
+  end
+
   describe '#find_flights' do
     context 'when passed search criteria which would lead to a
              nonempty result' do
@@ -12,13 +25,14 @@ describe Flight do
         search_criteria = { departure_airport_id: '1', arrival_airport_id: '2',
                             departure_date: '01/11/2021' }
         found_flights = Flight.find_flights(search_criteria)
+        puts "count is #{Flight.all.count}"
         expect(found_flights).to_not eq([])
       end
     end
 
     context 'when passed search criteria which would lead to a
              single result arriving in BOS' do
-      it 'returns a result arriving in BOS' do
+      xit 'returns a result arriving in BOS' do
         search_criteria = { departure_airport_id: '1', arrival_airport_id: '4',
                             departure_date: '01/11/2021' }
         found_flights = Flight.find_flights(search_criteria)
@@ -28,7 +42,7 @@ describe Flight do
     end
 
     context 'when passed search criteria which would lead to three results' do
-      it 'returns three results' do
+      xit 'returns three results' do
         search_criteria = { departure_airport_id: '2', arrival_airport_id: '4',
                             departure_date: '01/11/2021' }
         found_flights = Flight.find_flights(search_criteria)

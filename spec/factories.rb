@@ -2,8 +2,36 @@
 
 FactoryBot.define do
   factory :flight do
-    departure_airport_id { 1 }
-    arrival_airport_id { 2 }
-    departure_date { '01/11/2021' }
+    departure_date { '' }
+    departure_airport_id { '' }
+    arrival_airport_id { '' }
+
+    trait :departing_on_nov1 do
+      departure_date { '01/11/2021' }
+    end
+
+    trait :departing_on_nov2 do
+      departure_date { '02/11/2021' }
+    end
+
+    trait :departing_on_nov3 do
+      departure_date { '03/11/2021' }
+    end
+
+    trait :departing_from_BUR do
+      departure_airport_id { '1' }
+    end
+
+    trait :departing_from_LAX do
+      departure_airport_id { '2' }
+    end
+
+    trait :arriving_at_LAX do
+      arrival_airport_id { '2' }
+    end
+
+    trait :arriving_at_BOS do
+      arrival_airport_id { '4' }
+    end
   end
 end
