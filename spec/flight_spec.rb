@@ -5,17 +5,29 @@
 require 'rails_helper'
 
 describe Flight do
-  let(:BUR_LAX_nov1) do
-    create(:flight, traits: %i[departing_on_nov1
-                               departing_from_BUR arriving_at_LAX])
+  let!(:BUR) { create(:airport, :burbank) }
+  let!(:LAX) { create(:airport, :la) }
+  let!(:THIRD) { create(:airport) }
+  let!(:BOS) { create(:airport, :boston) }
+
+  let!(:BUR_LAX_nov1) do
+    create(:flight, :departing_on_nov1, :departing_from_BUR, :arriving_at_LAX)
   end
-  let(:BUR_LAX_nov2) do
-    create(:flight, traits: %i[departing_on_nov2
-                               departing_from_BUR arriving_at_LAX])
+
+  let!(:BUR_BOS_nov1) do
+    create(:flight, :departing_on_nov1, :departing_from_BUR, :arriving_at_BOS)
   end
-  let(:BUR_LAX_nov3) do
-    create(:flight, traits: %i[departing_on_nov3
-                               departing_from_BUR arriving_at_LAX])
+
+  let!(:LAX_BOS_nov2_a) do
+    create(:flight, :departing_on_nov2, :departing_from_LAX, :arriving_at_BOS)
+  end
+
+  let!(:LAX_BOS_nov2_b) do
+    create(:flight, :departing_on_nov2, :departing_from_LAX, :arriving_at_BOS)
+  end
+
+  let!(:LAX_BOS_nov2_c) do
+    create(:flight, :departing_on_nov2, :departing_from_LAX, :arriving_at_BOS)
   end
 
   describe '#find_flights' do
@@ -25,14 +37,13 @@ describe Flight do
         search_criteria = { departure_airport_id: '1', arrival_airport_id: '2',
                             departure_date: '01/11/2021' }
         found_flights = Flight.find_flights(search_criteria)
-        puts "count is #{Flight.all.count}"
         expect(found_flights).to_not eq([])
       end
     end
 
     context 'when passed search criteria which would lead to a
-             single result arriving in BOS' do
-      xit 'returns a result arriving in BOS' do
+             result arriving in BOS' do
+      it 'returns a result arriving in BOS' do
         search_criteria = { departure_airport_id: '1', arrival_airport_id: '4',
                             departure_date: '01/11/2021' }
         found_flights = Flight.find_flights(search_criteria)
@@ -42,9 +53,9 @@ describe Flight do
     end
 
     context 'when passed search criteria which would lead to three results' do
-      xit 'returns three results' do
+      it 'returns three results' do
         search_criteria = { departure_airport_id: '2', arrival_airport_id: '4',
-                            departure_date: '01/11/2021' }
+                            departure_date: '02/11/2021' }
         found_flights = Flight.find_flights(search_criteria)
         expect(found_flights.size).to eq(3)
       end
