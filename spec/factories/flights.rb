@@ -5,6 +5,8 @@ FactoryBot.define do
     departure_date { '' }
     departure_airport_id { '' }
     arrival_airport_id { '' }
+    duration { '' }
+    departure_time { '' }
 
     trait :departing_on_nov1 do
       departure_date { '01/11/2021' }
@@ -19,19 +21,19 @@ FactoryBot.define do
     end
 
     trait :departing_from_BUR do
-      departure_airport_id { '1' }
+      departure_airport_id { 1 }
     end
 
     trait :departing_from_LAX do
-      departure_airport_id { '2' }
+      departure_airport_id { 2 }
     end
 
     trait :arriving_at_LAX do
-      arrival_airport_id { '2' }
+      arrival_airport_id { 2 }
     end
 
     trait :arriving_at_BOS do
-      arrival_airport_id { '4' }
+      arrival_airport_id { 4 }
     end
   end
 end
