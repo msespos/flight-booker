@@ -6,7 +6,7 @@ FactoryBot.define do
     departure_airport_id { '' }
     arrival_airport_id { '' }
     duration { '' }
-    departure_time { '' }
+    departure_time { '12:00' }
 
     trait :departing_on_nov1 do
       departure_date { '01/11/2021' }
