@@ -10,6 +10,10 @@ FactoryBot.define do
       code { 'LAX' }
     end
 
+    trait :bedford do
+      code { 'BED' }
+    end
+
     trait :boston do
       code { 'BOS' }
     end
