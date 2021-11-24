@@ -35,4 +35,14 @@ RSpec.describe 'Perform the first search and select a flight', type: :feature do
     click_on 'Select!'
     expect(page).to have_content('Review your flight info:')
   end
+
+  scenario 'for a flight from LAX to BOS on 11/3 without making a choice' do
+    visit root_path
+    select 'LAX', from: 'flight_departure_airport_id'
+    select 'BOS', from: 'flight_arrival_airport_id'
+    select '03/11/2021', from: 'flight_departure_date'
+    click_on 'Search!'
+    click_on 'Select!'
+    expect(page).to have_content('Please make a flight selection.')
+  end
 end
