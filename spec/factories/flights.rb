@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 FactoryBot.define do
   factory :flight do
     departure_date { '' }
@@ -37,3 +39,5 @@ FactoryBot.define do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength

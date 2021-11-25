@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :airport do
     code { '' }
-    
+
     trait :burbank do
       code { 'BUR' }
     end

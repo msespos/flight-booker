@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe 'Search, select and book a flight', type: :feature do
@@ -9,7 +11,7 @@ RSpec.describe 'Search, select and book a flight', type: :feature do
   let!(:BUR_LAX_nov1) do
     create(:flight, :departing_on_nov1, :departing_from_BUR, :arriving_at_LAX)
   end
-  
+
   scenario 'from BUR to LAX on 01/11/2021 at 12:00PM with one passenger' do
     visit root_path
     select 'LAX', from: 'flight_arrival_airport_id'
@@ -35,3 +37,5 @@ RSpec.describe 'Search, select and book a flight', type: :feature do
     expect(page).to have_content('Passenger 4: Mike; Email: mike@mike.mike')
   end
 end
+
+# rubocop:enable Metrics/BlockLength

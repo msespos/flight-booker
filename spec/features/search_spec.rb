@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 RSpec.describe 'Perform the first search', type: :feature do
@@ -38,3 +40,5 @@ RSpec.describe 'Perform the first search', type: :feature do
     expect(page).to have_content('LAX BOS 03/11/2021')
   end
 end
+
+# rubocop:enable Metrics/BlockLength
