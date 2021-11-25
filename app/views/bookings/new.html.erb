@@ -27,7 +27,7 @@
   <%= form_with model: @booking do |booking_form| %>
     <%= booking_form.hidden_field :flight_id, value: @flight.id %>
     <% @passengers.each_with_index do |passenger, passenger_id| %>
-      <%= booking_form.fields_for passenger, index: nil do |passenger_form| %>
+      <%= booking_form.fields_for passenger, index: passenger_id do |passenger_form| %>
         <div class="passenger-container">
           <div class="passenger-header">
             Passenger #<%= passenger_id + 1 %>:<br>
