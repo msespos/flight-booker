@@ -29,11 +29,6 @@ RSpec.describe 'Search, select and book a flight', type: :feature do
     click_on 'Search!'
     choose 'flight_id_1'
     click_on 'Select!'
-    #all('booking_passenger__name')[3].set('Mike')
-    find(:css, "input[id$='booking_passenger__name']")[3].set('Mike')
-    #within(all('booking_passenger__name')[3]) do
-      #fill_in 'booking_passenger__name', with: 'Mike'
-    #end
     fill_in 'booking_passenger_3_name', with: 'Mike'
     fill_in 'booking_passenger_3_email', with: 'mike@mike.mike'
     click_on 'Book it!'
