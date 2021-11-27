@@ -7,7 +7,7 @@ require 'rails_helper'
 describe Flight do
   let!(:BUR) { create(:airport, :burbank) }
   let!(:LAX) { create(:airport, :la) }
-  let!(:THIRD) { create(:airport) }
+  let!(:BED) { create(:airport, :bedford) }
   let!(:BOS) { create(:airport, :boston) }
 
   let!(:BUR_LAX_nov1) do
