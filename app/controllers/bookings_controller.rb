@@ -26,8 +26,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(extract_booking_params!)
     if @booking.save
-      PassengerMailer.with(passenger: @passenger).confirmation_email.deliver_later
-      format.html { redirect_to(@passenger, notice: 'Passenger was successfully created.') }
+      PassengerMailer.confirmation_email.deliver_later
       redirect_to @booking
     else
       render 'new'
