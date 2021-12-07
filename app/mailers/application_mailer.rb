@@ -4,9 +4,12 @@ class ApplicationMailer < ActionMailer::Base
   default from: 'from@example.com'
   layout 'mailer'
 
-  def confirmation_email
-    @passenger = params[:passenger]
-    @url  = 'http://example.com/login'
-    mail(to: @passenger.email, subject: 'Thank you for booking!')
+  def confirmation_email(booking)
+    passengers = Passenger.where(booking_id: booking.id)
+    @url = 'http://example.com'
+    passengers.each do |passenger|
+      @passenger = passenger
+      mail(to: @passenger, subject: 'Thank you for booking!')
+    end
   end
 end
